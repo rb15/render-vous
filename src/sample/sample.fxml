@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="307.0" prefWidth="269.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"             fx:controller="sample.Controller"
+>
+   <children>
+      <TextField fx:id="username" layoutX="60.0" layoutY="81.0" promptText="username" />
+      <PasswordField fx:id="password" layoutX="60.0" layoutY="141.0" promptText="password" />
+      <Button fx:id="log" layoutX="109.0" layoutY="194.0" mnemonicParsing="false" onAction="#login" text="log in" />
+      <Label contentDisplay="CENTER" layoutX="35.0" layoutY="243.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" textFill="RED" fx:id="text">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label contentDisplay="CENTER" layoutX="103.0" layoutY="33.0" prefHeight="40.0" prefWidth="64.0" style="-fx-background-color: #ffffff;" text="Log In" textAlignment="CENTER">
+         <font>
+            <Font name="Cambria" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
