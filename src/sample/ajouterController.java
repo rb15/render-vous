@@ -31,7 +31,10 @@ public class ajouterController {
     public TextField ville_a;
     sqlcontroller s = new sqlcontroller();
     tableController j = new tableController();
+
     public void ajout() throws SQLException {
+     //   if (nom_a.getText().trim().isEmpty() || prenom_a.getText().trim().isEmpty()
+     //           || ville_a.getText().trim().isEmpty() || date_a.getValue())
         s.insert(nom_a.getText(),prenom_a.getText(),String.valueOf(date_a.getValue()),ville_a.getText());
         Stage a =(Stage) nom_a.getScene().getWindow();
         a.close();

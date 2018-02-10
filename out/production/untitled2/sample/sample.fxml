@@ -14,7 +14,7 @@
 >
    <children>
       <TextField fx:id="username" layoutX="60.0" layoutY="81.0" promptText="username" />
-      <PasswordField fx:id="password" layoutX="60.0" layoutY="141.0" promptText="password" />
+      <PasswordField fx:id="password" layoutX="60.0" layoutY="141.0" promptText="password" onKeyPressed="#entre" />
       <Button fx:id="log" layoutX="109.0" layoutY="194.0" mnemonicParsing="false" onAction="#login" text="log in" />
       <Label contentDisplay="CENTER" layoutX="35.0" layoutY="243.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" textAlignment="CENTER" textFill="RED" fx:id="text">
          <font>

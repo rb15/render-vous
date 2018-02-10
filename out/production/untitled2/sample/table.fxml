@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.layout.BorderPane?>
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.151" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.tableController">
-   <children>
-      <TableView fx:id="table" layoutX="172.0" layoutY="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="0.0">
+
+<SplitPane dividerPositions="0.8254620123203286" prefHeight="451.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.tableController">
+   <items>
+      <TableView fx:id="table" prefHeight="253.0" prefWidth="85.0">
         <columns>
-          <TableColumn fx:id="nom" prefWidth="123.0" text="Nom" />
-          <TableColumn fx:id="prenom" prefWidth="133.0" text="Prenom" />
-            <TableColumn fx:id="date" prefWidth="136.0" text="Date" />
-            <TableColumn fx:id="ville" prefWidth="127.0" text="Ville" />
-            <TableColumn fx:id="id" prefWidth="127.0" text="Id" />
+          <TableColumn fx:id="nom" maxWidth="100.0" prefWidth="123.0" text="Nom" />
+          <TableColumn fx:id="prenom" maxWidth="100.0" prefWidth="133.0" text="Prenom" />
+            <TableColumn fx:id="date" maxWidth="100.0" prefWidth="136.0" text="Date" />
+            <TableColumn fx:id="ville" maxWidth="100.0" prefWidth="127.0" text="Ville" />
+            <TableColumn fx:id="id" maxWidth="-1.0" prefWidth="127.0" text="Id" visible="false" />
         </columns>
       </TableView>
-      <VBox layoutX="520.0" prefHeight="400.0" prefWidth="100.0" spacing="30.0">
+      <VBox maxWidth="100.0" prefHeight="449.0" prefWidth="210.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" fx:id="add" onAction="#ajouter" prefHeight="25.0" prefWidth="102.0" text="Ajouter">
+            <Button fx:id="add" mnemonicParsing="false" onAction="#ajouter" prefHeight="25.0" prefWidth="102.0" text="Ajouter">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -42,5 +46,5 @@
             <Insets top="30.0" />
          </padding>
       </VBox>
-   </children>
-</BorderPane>
+   </items>
+</SplitPane>

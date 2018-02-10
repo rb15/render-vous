@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -46,6 +48,11 @@ public class Controller implements Initializable {
     }
 
 
+    public void entre(KeyEvent keyEvent) throws IOException, SQLException {
+        if(keyEvent.getCode()== KeyCode.ENTER){
+            login();
+        }
+    }
 }
 
 
