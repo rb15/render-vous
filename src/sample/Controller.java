@@ -25,7 +25,6 @@ public class Controller implements Initializable {
     Stage st1, st2;
 
 
-    Parent windows;
     sqlcontroller s = new sqlcontroller();
 
     @Override

@@ -40,7 +40,7 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#ref" text="refrech" />
+            <TextField fx:id="search" promptText="rechercher" onKeyPressed="#entre"   />
          </children>
          <padding>
             <Insets top="30.0" />

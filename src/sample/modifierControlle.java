@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -20,9 +21,18 @@ public class modifierControlle {
 
     sqlcontroller s = new sqlcontroller();
     public void modifier(ActionEvent actionEvent)throws SQLException {
+        if (nom_a.getText().trim().isEmpty() || prenom_a.getText().trim().isEmpty()
+                || ville_a.getText().trim().isEmpty() || date_a.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erruer");
+            alert.setHeaderText(null);
+            alert.setContentText("please entre all fields");
+            alert.showAndWait();
+        }
+        else{
        s.update(nom_a.getText(),prenom_a.getText(),String.valueOf(date_a.getValue()),ville_a.getText(),Integer.parseInt(id_a.getText()));
         Stage a =(Stage) nom_a.getScene().getWindow();
-        a.close();
+        a.close();}
     }
     public void myf(String a,String b,String c,String d,int e){
         nom_a.setText(a);

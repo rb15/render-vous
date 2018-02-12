@@ -1,43 +1,39 @@
 package sample;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 public class ajouterController {
     tableController taa;
     ObservableList<person> tab;
-    public ajouterController() {
-        this.tab=tab;
-    }
-    public ajouterController(tableController taa){
-        this.taa=taa;
-    }
+
     public TextField nom_a;
     public TextField prenom_a;
     public DatePicker date_a;
     public TextField ville_a;
     sqlcontroller s = new sqlcontroller();
-    tableController j = new tableController();
 
     public void ajout() throws SQLException {
-     //   if (nom_a.getText().trim().isEmpty() || prenom_a.getText().trim().isEmpty()
-     //           || ville_a.getText().trim().isEmpty() || date_a.getValue())
-        s.insert(nom_a.getText(),prenom_a.getText(),String.valueOf(date_a.getValue()),ville_a.getText());
-        Stage a =(Stage) nom_a.getScene().getWindow();
-        a.close();
+        if (nom_a.getText().trim().isEmpty() || prenom_a.getText().trim().isEmpty()
+            || ville_a.getText().trim().isEmpty() || date_a.getValue() == null){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Erruer");
+            alert.setHeaderText(null);
+            alert.setContentText("please entre all fields");
+            alert.showAndWait();
+        }
+        else{
+            s.insert(nom_a.getText(),prenom_a.getText(),String.valueOf(date_a.getValue()),ville_a.getText());
+            Stage a =(Stage) nom_a.getScene().getWindow();
+            a.close();}
 
 
     }
@@ -47,10 +43,6 @@ public class ajouterController {
     public void annu(ActionEvent actionEvent) throws IOException {
         Stage a =(Stage) nom_a.getScene().getWindow();
         a.close();
-
-
-
     }
 
-
-}
+    }
