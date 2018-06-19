@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.BorderPane?>
 
-<SplitPane dividerPositions="0.8254620123203286" prefHeight="451.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.tableController">
+<SplitPane dividerPositions="0.7885010266940452" prefHeight="451.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.tableController">
    <items>
       <TableView fx:id="table" prefHeight="253.0" prefWidth="85.0">
         <columns>
@@ -20,10 +20,11 @@
           <TableColumn fx:id="prenom" maxWidth="100.0" prefWidth="133.0" text="Prenom" />
             <TableColumn fx:id="date" maxWidth="100.0" prefWidth="136.0" text="Date" />
             <TableColumn fx:id="ville" maxWidth="100.0" prefWidth="127.0" text="Ville" />
+            <TableColumn fx:id="temp" maxWidth="60.0" minWidth="60.0" prefWidth="127.0" text="Temp" />
             <TableColumn fx:id="id" maxWidth="-1.0" prefWidth="127.0" text="Id" visible="false" />
         </columns>
       </TableView>
-      <VBox maxWidth="100.0" prefHeight="449.0" prefWidth="210.0" spacing="30.0">
+      <VBox maxWidth="140.0" prefHeight="449.0" prefWidth="140.0" spacing="30.0">
          <children>
             <Button fx:id="add" mnemonicParsing="false" onAction="#ajouter" prefHeight="25.0" prefWidth="102.0" text="Ajouter">
                <VBox.margin>
@@ -40,7 +41,10 @@
                   <Insets />
                </VBox.margin>
             </Button>
-            <TextField fx:id="search" promptText="rechercher" onKeyPressed="#entre"   />
+            <TextField fx:id="search" onKeyPressed="#entre" promptText="rechercher" />
+            <Label fx:id="time" prefHeight="23.0" prefWidth="80.0" text="Label" />
+            <Label fx:id="time2" prefHeight="30.0" prefWidth="90.0" text="Label" />
+            <DatePicker fx:id="date1" onAction="#date" />
          </children>
          <padding>
             <Insets top="30.0" />

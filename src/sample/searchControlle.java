@@ -2,16 +2,12 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.Initializable;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.net.URL;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ResourceBundle;
 
 public class searchControlle  {
     public TableView<person> table;
@@ -20,6 +16,7 @@ public class searchControlle  {
     public TableColumn<person , DatePicker> date;
     public TableColumn<person , String> ville;
     public TableColumn<person, Integer> id;
+    public TableColumn<person, String> temp;
 
     ObservableList<person> list = FXCollections.observableArrayList(
 
@@ -32,10 +29,12 @@ public class searchControlle  {
         ville.setCellValueFactory(new PropertyValueFactory<person,String>("ville"));
         id.setCellValueFactory(new PropertyValueFactory<person,Integer>("id"));
         id.setVisible(false);
+        temp.setCellValueFactory(new PropertyValueFactory<person,String>("temp"));
         try {
             table.setItems(s.search(list,a));
         } catch (SQLException e) {
             e.printStackTrace();
+
         }}
 
 

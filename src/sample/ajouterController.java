@@ -19,11 +19,12 @@ public class ajouterController {
     public TextField prenom_a;
     public DatePicker date_a;
     public TextField ville_a;
+    public TextField temp_a;
     sqlcontroller s = new sqlcontroller();
 
     public void ajout() throws SQLException {
         if (nom_a.getText().trim().isEmpty() || prenom_a.getText().trim().isEmpty()
-            || ville_a.getText().trim().isEmpty() || date_a.getValue() == null){
+            || ville_a.getText().trim().isEmpty() || date_a.getValue() == null || temp_a.getText().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erruer");
             alert.setHeaderText(null);
@@ -31,7 +32,7 @@ public class ajouterController {
             alert.showAndWait();
         }
         else{
-            s.insert(nom_a.getText(),prenom_a.getText(),String.valueOf(date_a.getValue()),ville_a.getText());
+            s.insert(nom_a.getText(),prenom_a.getText(),String.valueOf(date_a.getValue()),ville_a.getText(),temp_a.getText());
             Stage a =(Stage) nom_a.getScene().getWindow();
             a.close();}
 

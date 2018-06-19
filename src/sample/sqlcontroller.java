@@ -28,12 +28,41 @@ public class sqlcontroller {
             return false;
         }
     }
-    public ObservableList<person> initable(ObservableList<person> a) throws SQLException {
+
+    public void alert(String a ,String b) throws SQLException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet= null;
-        String query ="select * from person";
+        String query ="select nom,prenom from person where date=? and temp=?";
         try {
             preparedStatement = cnn.prepareStatement(query);
+            preparedStatement.setString(1,a);
+            preparedStatement.setString(2,b);
+            resultSet = preparedStatement.executeQuery();
+            System.out.println("out");
+            if (resultSet.next()){
+                System.out.println("in");
+                Alert alert1 = new Alert(Alert.AlertType.INFORMATION);
+                alert1.setTitle("Rendez-vous");
+                alert1.setHeaderText(null);
+                alert1.setContentText("Render-vous de " + resultSet.getString("nom") + " " + resultSet.getString("prenom"));
+                alert1.show();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+
+        }finally {
+            preparedStatement.close();
+            resultSet.close();
+        }
+    }
+
+    public ObservableList<person> initable(ObservableList<person> a,String b) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet= null;
+        String query ="select * from person where date=?";
+        try {
+            preparedStatement = cnn.prepareStatement(query);
+            preparedStatement.setString(1,b);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()){
                 a.add(new person(
@@ -41,6 +70,7 @@ public class sqlcontroller {
                         resultSet.getString("prenom"),
                         resultSet.getString("date"),
                         resultSet.getString("ville"),
+                        resultSet.getString("temp"),
                         resultSet.getInt("id")
                 ));
             }
@@ -55,6 +85,7 @@ public class sqlcontroller {
             resultSet.close();
         }
     }
+
     public ObservableList<person> search(ObservableList<person> a,String b) throws SQLException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet= null;
@@ -71,12 +102,11 @@ public class sqlcontroller {
                         resultSet.getString("prenom"),
                         resultSet.getString("date"),
                         resultSet.getString("ville"),
+                        resultSet.getString("temp"),
                         resultSet.getInt("id")
                 ));
             }
-
             return a;
-
         } catch (Exception e) {
             System.out.println(e);
             return a;
@@ -85,16 +115,18 @@ public class sqlcontroller {
             resultSet.close();
         }
     }
-    public void update(String a,String b,String c,String d,int e)throws SQLException{
+
+    public void update(String a,String b,String c,String d,int e,String f)throws SQLException{
             PreparedStatement preparedStatement = null;
-            String query ="UPDATE person set nom=? , prenom=? , date=? , ville=? where id=?";
+            String query ="UPDATE person set nom=? , prenom=? , date=? , ville=? , temp=? where id=?";
             try {
                 preparedStatement = cnn.prepareStatement(query);
                 preparedStatement.setString(1,a);
                 preparedStatement.setString(2,b);
                 preparedStatement.setString(3,c);
                 preparedStatement.setString(4,d);
-                preparedStatement.setInt(5,e);
+                preparedStatement.setString(5,f);
+                preparedStatement.setInt(6,e);
                 preparedStatement.execute();
 
             }catch (Exception e1){
@@ -133,9 +165,9 @@ public class sqlcontroller {
                 preparedStatement.close();
             }
         }}
-        public void insert(String a,String b,String c,String d)throws SQLException {
+        public void insert(String a,String b,String c,String d,String e)throws SQLException {
         PreparedStatement preparedStatement = null;
-        String query ="INSERT INTO person (nom,prenom,date,ville)VALUES(?,?,?,?)";
+        String query ="INSERT INTO person (nom,prenom,date,ville,temp)VALUES(?,?,?,?,?)";
         try {
             preparedStatement = cnn.prepareStatement(query);
             System.out.println(d);
@@ -143,6 +175,8 @@ public class sqlcontroller {
             preparedStatement.setString(2,b);
             preparedStatement.setString(3,c);
             preparedStatement.setString(4,d);
+            preparedStatement.setString(5,e);
+
             preparedStatement.execute();
 
         }catch (Exception e2){

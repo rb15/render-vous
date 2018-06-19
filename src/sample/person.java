@@ -6,13 +6,18 @@ public class person {
     private String date;
     private String ville;
     private Integer id;
-    public person(String nom, String prenom, String date, String ville) {
+    private String temp;
+
+    public person(String nom, String prenom, String date, String ville, String temp ,Integer id ) {
         this.nom = nom;
         this.prenom = prenom;
         this.date = date;
         this.ville = ville;
+        this.temp = temp;
+        this.id = id;
     }
-    public person(String nom, String prenom, String date, String ville,Integer id) {
+
+    public person(String nom, String prenom, String date, String ville, Integer id) {
         this.nom = nom;
         this.prenom = prenom;
         this.date = date;
@@ -59,4 +64,8 @@ public class person {
     public void setVille(String ville) {
         this.ville = ville;
     }
+
+    public String getTemp() { return temp; }
+
+    public void setTemp(String temp) { this.temp = temp; }
 }
